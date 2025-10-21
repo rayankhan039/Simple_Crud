@@ -1,0 +1,45 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "viewUsers";
+}
+
+<h1>View Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Name</th>
+            <th>User Age</th>
+            <th>User_Designation</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+        @if(Model.Count == 0)
+        {
+            <h3>No User Found!</h3>
+        }
+        </tr>
+        
+        @foreach (var user in Model)
+        {
+     
+        <tr>
+            <td>@user.U_Id</td>
+            <td>@user.U_Name</td>
+            <td>@user.U_Age</td>
+            <td>@user.U_Designation</td>
+            <td><a class="btn btn-warning" asp-action="AddEditUsers" asp-route-id="@user.U_Id">Edit</a></td>
+                    <td><a class="btn btn-danger" asp-action="DeleteUser" asp-route-id="@user.U_Id">Delete</a></td>
+           
+            
+        </tr>
+        }
+        
+</tbody>
+
+</table>

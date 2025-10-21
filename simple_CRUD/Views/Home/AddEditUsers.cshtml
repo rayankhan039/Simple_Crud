@@ -1,0 +1,44 @@
+﻿@model simple_CRUD.Models.User
+
+@{
+    ViewData["Title"] = "AddEditUsers";
+}
+
+<h1>AddEditUsers</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <form asp-action="AddEditUsers">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           <input asp-for="U_Id" hidden />
+            <div class="form-group">
+                <label asp-for="U_Name" class="control-label mt-4"></label>
+                <input asp-for="U_Name" class="form-control" />
+                <span asp-validation-for="U_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="U_Age" class="control-label mt-4"></label>
+                <input asp-for="U_Age" class="form-control" />
+                <span asp-validation-for="U_Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="U_Designation" class="control-label mt-4"></label>
+                <input asp-for="U_Designation" class="form-control" />
+                <span asp-validation-for="U_Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary mt-4 mx-auto d-grid" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
